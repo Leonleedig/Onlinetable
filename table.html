@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>自適應網頁表格</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    .readonly div {
+      background-color: #f2f2f2;
+      border: none;
+      padding: 4px;
+    }
+    .readonly div:focus {
+      outline: none;
+    }
+    .readonly button {
+      display: none;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      var readonly = true;
+      var cells = document.getElementsByClassName('cell');
+      var button = document.getElementById('toggleButton');
+
+      function toggleReadonly() {
+        readonly = !readonly;
+        for (var i = 0; i < cells.length; i++) {
+          cells[i].contentEditable = !readonly;
+        }
+        button.innerHTML = readonly ? '填寫' : '儲存';
+      }
+
+      function saveInput() {
+        for (var i = 0; i < cells.length; i++) {
+          localStorage.setItem('input_' + i, cells[i].textContent);
+        }
+      }
+
+      function loadInput() {
+        for (var i = 0; i < cells.length; i++) {
+          cells[i].textContent = localStorage.getItem('input_' + i);
+        }
+      }
+
+      button.onclick = toggleReadonly;
+      window.onbeforeunload = saveInput;
+      loadInput();
+    }
+  </script>
+</head>
+<body>
+  <table>
+    <tr>
+      <th> </th>
+      <th>週一</th>
+      <th>週二</th>
+      <th>週三</th>
+      <th>週四</th>
+      <th>週五</th>
+      <th>週六</th>
+      <th>週日</th>
+    </tr>
+    <tr>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+    </tr>
+    <tr>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+    </tr>
+    <tr>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+    </tr>
+    <tr>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+    </tr>
+    <tr>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+    </tr>
+    <tr>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+    </tr>
+    <tr>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+    </tr>
+    <tr>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+      <td class="cell" contenteditable="true"></td>
+    </tr>
+
+    <!-- 繼續添加需要的行 -->
+  </table>
+  <button id="toggleButton">填寫</button>
+</body>
+</html>
