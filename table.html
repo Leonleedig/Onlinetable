@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <title>自適應網頁表格</title>
   <style>
     body {
@@ -24,19 +25,16 @@
     }
 
     /* 媒體查詢規則 - 強制橫向觀看 */
-    @media (max-width: 768px) {
-      body {
-        transform: rotate(90deg);
-        transform-origin: left top;
-        overflow-x: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100vh;
-        margin: 0;
-        padding: 0;
-      }
+@media (max-width: 767px) {
+  body {
+    transform: rotate(90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
     }
   </style>
   <script>
