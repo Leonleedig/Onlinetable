@@ -9,22 +9,34 @@
     table {
       width: 100%;
       border-collapse: collapse;
+      background-color: #e2f3f1;
     }
     th, td {
-      border: 1px solid #ccc;
+      border-top: 1px solid #ccc; /* 水平格線 */
+      border-bottom: 1px solid #ccc; /* 水平格線 */
       padding: 8px;
       text-align: left;
+      border-left: none; /* 隱藏左側垂直格線 */
+      border-right: none; /* 隱藏右側垂直格線 */
     }
-    .readonly div {
-      background-color: #f2f2f2;
-      border: none;
-      padding: 4px;
+    .editable {
+      background-color: #ebe7c2; /* 填寫模式背景色 */
     }
-    .readonly div:focus {
-      outline: none;
-    }
-    .readonly button {
-      display: none;
+
+    /* 媒體查詢規則 - 強制橫向觀看 */
+    @media (max-width: 768px) {
+      body {
+        transform: rotate(90deg);
+        transform-origin: left top;
+        overflow-x: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vh;
+        margin: 0;
+        padding: 0;
+      }
     }
   </style>
   <script>
@@ -37,6 +49,7 @@
         readonly = !readonly;
         for (var i = 0; i < cells.length; i++) {
           cells[i].contentEditable = !readonly;
+          cells[i].classList.toggle('editable', !readonly);
         }
         button.innerHTML = readonly ? '填寫' : '儲存';
       }
@@ -55,7 +68,6 @@
 
       // 在載入時先將表格設定為只能觀看的模式
       toggleReadonly();
-
       button.onclick = toggleReadonly;
       window.onbeforeunload = saveInput;
       loadInput();
@@ -66,7 +78,7 @@
   <table>
     <tr>
       <th> </th>
-      <th>週一</th>
+      <th>週一</th>  
       <th>週二</th>
       <th>週三</th>
       <th>週四</th>
@@ -75,14 +87,14 @@
       <th>週日</th>
     </tr>
     <tr>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
     </tr>
     <!-- 其他行... -->
   </table>
