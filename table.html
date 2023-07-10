@@ -53,6 +53,9 @@
         }
       }
 
+      // 在載入時先將表格設定為只能觀看的模式
+      toggleReadonly();
+
       button.onclick = toggleReadonly;
       window.onbeforeunload = saveInput;
       loadInput();
@@ -81,78 +84,7 @@
       <td class="cell" contenteditable="true"></td>
       <td class="cell" contenteditable="true"></td>
     </tr>
-    <tr>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-    </tr>
-    <tr>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-    </tr>
-    <tr>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-    </tr>
-    <tr>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-    </tr>
-    <tr>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-    </tr>
-    <tr>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-    </tr>
-    <tr>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-      <td class="cell" contenteditable="true"></td>
-    </tr>
-
-    <!-- 繼續添加需要的行 -->
+    <!-- 其他行... -->
   </table>
   <button id="toggleButton">填寫</button>
 </body>
