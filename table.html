@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>自適應網頁表格</title>
   <style>
     body {
@@ -10,7 +11,6 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      background-color: #e2f3f1;
     }
     th, td {
       border-top: 1px solid #ccc; /* 水平格線 */
@@ -23,18 +23,20 @@
     .editable {
       background-color: #ebe7c2; /* 填寫模式背景色 */
     }
+    .readonly .cell {
+      background-color: #e2f3f1; /* 唯讀模式背景色 */
+    }
 
-    /* 媒體查詢規則 - 強制橫向觀看 */
-@media (max-width: 767px) {
-  body {
-    transform: rotate(90deg);
-    transform-origin: left top;
-    width: 100vh;
-    overflow-x: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
+    @media screen and (max-width: 480px) {
+      table {
+        writing-mode: vertical-lr;
+        height: 100vh;
+        overflow: scroll;
+      }
+      th, td {
+        white-space: nowrap;
+        height: 30px;
+      }
     }
   </style>
   <script>
@@ -45,6 +47,8 @@
 
       function toggleReadonly() {
         readonly = !readonly;
+        var table = document.getElementsByTagName('table')[0];
+        table.classList.toggle('readonly', readonly);
         for (var i = 0; i < cells.length; i++) {
           cells[i].contentEditable = !readonly;
           cells[i].classList.toggle('editable', !readonly);
@@ -71,18 +75,79 @@
       loadInput();
     }
   </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <table>
     <tr>
-      <th> </th>
-      <th>週一</th>  
+      <th></th>
+      <th>週一</th>	
       <th>週二</th>
       <th>週三</th>
       <th>週四</th>
       <th>週五</th>
       <th>週六</th>
       <th>週日</th>
+    </tr>
+    <tr>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
     </tr>
     <tr>
       <td class="cell"></td>
